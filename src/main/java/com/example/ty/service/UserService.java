@@ -17,6 +17,7 @@ import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -62,6 +63,20 @@ public class UserService {
             return query.where(predicates.toArray(new Predicate[predicates.size()])).getRestriction();
         };
         List<UserEntity> all = userRepository.findAll(spec);
+        return all;
+    }
+    
+    public UserEntity findById(Long id){
+        Optional<UserEntity> all = userRepository.findUserEntitiesById(id);
+        if(all.isPresent()){
+            UserEntity userEntity = all.get();
+            return userEntity;
+        }
+        return null;
+    }
+
+    public List<UserEntity> findByAge(Integer age){
+        List<UserEntity> all = userRepository.findAllByAge(age);
         return all;
     }
 }

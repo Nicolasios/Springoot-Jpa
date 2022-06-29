@@ -36,4 +36,14 @@ public class UserController {
         log.info("content:{}",content);
         return PageResult.ok(Constant.OK,"查询成功",pageNo,pageSize,total,content);
     }
+
+    @GetMapping("/findById")
+    public UserEntity findById(@RequestParam("id") Long id){
+        return userService.findById(id);
+    }
+
+    @GetMapping("/findByAge")
+    public List<UserEntity> findByAge(@RequestParam("age") Integer age){
+        return userService.findByAge(age);
+    }
 }
