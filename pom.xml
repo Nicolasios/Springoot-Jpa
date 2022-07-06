@@ -85,14 +85,6 @@
                 <configuration>
                     <mainClass>com.example.ty.TestApplication</mainClass>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>repackage</id>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
